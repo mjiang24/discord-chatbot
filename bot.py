@@ -14,7 +14,7 @@ intents.members = True
 client = commands.Bot(command_prefix = '$', intents = intents)
 
 MODEL = input("enter model: ")
-
+TOKEN = input("enter discord bot token: ")
 data = pickle.load(open(f"./processed_data/{MODEL}.pickle", "rb"))
 enc_model = load_model(f"./models/{MODEL}/enc_model/", compile=False)
 dec_model = load_model(f"./models/{MODEL}/dec_model/", compile=False)
@@ -117,11 +117,11 @@ async def on_message(message):
 
         await message.channel.send(result)
 
-    if message.content.startswith("$test"):
+    if message.content.startswith("$start"):
         on = True
 
 
 
 
 
-client.run('ODU3NDM4ODEyODQ0ODUxMjAw.YNPmHw.TYtLzVnpbrwCeKsOUzQD-k5DQEY')
+client.run(TOKEN)
